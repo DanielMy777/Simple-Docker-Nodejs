@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  app:
+    container_name: "image-service"
+    image: dmalky47/enso_image_service:v1-release
+    command: npm run start
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      DATABASE_TYPE: local
+      DATABASE_CON_LOCAL: mongodb://mongo:27017/EnsoDB
+    depends_on:
+      - "mongo"
+    networks:
+      - backend
+  
+  auth:
+    container_name: "auth-service"
+    image: dmalky47/enso_auth_service:v1-release
+    command: npm run start
+    ports:
+      - "3001:3001"
+    networks:
+      - backend
+
+  mongo:
+    container_name: "mongo-db"
+    image: mongodb/mongodb-community-server:6.0-ubi8
+    ports:
+      - "27017:27017"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
