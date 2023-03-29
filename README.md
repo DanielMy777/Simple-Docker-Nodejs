@@ -15,8 +15,11 @@ Express.js was used as the web framework, MongoDB as the database.
 > To start the app with node
 
 1. Clone the repository (Or download the files).
-2. In the terminnal, run `npm start:dev <path-to-file>`.
-3. To run the tests, run `npm test`.
+2. In the terminnal, reach the root folder of the auth service.
+3. Run `npm install` and then `npm start <path-to-server.ts-file>`.
+4. In the terminnal, reach the root folder of the image service.
+5. Run `npm install` and then `npm start:dev <path-to-server.ts-file>`.
+6. To run the tests, run `npm test`.
 
 ## 👨‍💻 Technical Features
 * Swagger documentation. (exposed on the root /api/doc endpoint)
